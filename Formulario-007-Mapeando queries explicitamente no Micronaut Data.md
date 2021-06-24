@@ -44,7 +44,10 @@ Como você faria para implementar uma consulta para carregar uma nota fiscal por
 - **Peso 5**: Criar um método no repository com uma query explicita passando o `id` como parâmetro. Aqui tanto faz a query ser escrita em JPQL ou SQL nativo, o importante é que seja via uma das anotações suportadas pelo Micronaut:  `@Query`, `@Join` ou `@EntityGraph`;
 - **Peso 4**: Garantir que somente uma única query seja disparada pelo Micronaut carregando os dados da nota fiscal juntamente com os dados dos seus itens;
 - **Peso 1**: Apresentar algum domínio de JPQL, por exemplo utilizando o recurso `join fetch` da JPA;
-- **Peso -5**: Alterar o mapeamento do relacionamento entre nota e itens para `FetchType.EAGER`;
+
+## O que penaliza sua resposta?
+
+- **Penalidade -5**: Alterar o mapeamento do relacionamento entre nota e itens para `FetchType.EAGER`;
 
 ## Resposta do Especialista:
 

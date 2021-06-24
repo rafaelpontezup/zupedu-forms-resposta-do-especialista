@@ -37,7 +37,10 @@ Como você implementaria uma API REST para a atividade acima?
 - **Peso 2**: Criação de um método `toModel()` ou similar no DTO de request para converter o DTO para uma instância de `Pedido` do nosso modelo de domínio;
 - **Peso 3**: Implementação da lógica para calcular o valor total do pedido deve estar dentro do DTO de pedido, e do valor total do item de pedido deve estar dentro do DTO de item de pedido;
 - **Peso 1**: Implementação da validação do tamanho máximo da lista de itens de pedidos;
-- **Peso -5**: Utilização do modelo de domínio (`Pedido`, `ItemDePedido` e `Cliente`) como entrada dos dados da API REST;
+
+## O que penaliza sua resposta?
+
+- **Penalidade -5**: Utilização do modelo de domínio (`Pedido`, `ItemDePedido` e `Cliente`) como entrada dos dados da API REST;
 
 ## Resposta do Especialista:
 
