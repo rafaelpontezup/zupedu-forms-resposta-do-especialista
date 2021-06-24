@@ -35,7 +35,7 @@ class ItemDeNota(
 )
 ```
 
-A idéia do relatório é bem simples, basicamente temos que carregar uma nota fiscal por `id` com todos seus itens para então exibir no aplicativo mobile do nosso usuário. Nesse caso, precisamos de fato de todas os campos da nota fiscal e dos itens, porém tem um ponto de atenção importante que o tech lead nos alertou: por se tratar de um sistema com uma volumetria de dados razoável e milhares de usuários ao redor do país, é importante que nossa consulta carregue todos os dados numa única ida e volta (roundtrip) ao banco de dados, dessa forma os itens devem ser carregados juntamente com nota fiscal consultada em um único comando `SELECT`.
+A idéia do relatório é bem simples, basicamente temos que carregar uma nota fiscal por `id` com todos seus itens para então exibir no aplicativo mobile do nosso usuário. Nesse caso, precisamos de fato de todos os campos da nota fiscal e dos itens, porém tem um ponto de atenção importante que o tech lead nos alertou: por se tratar de um sistema com uma volumetria de dados razoável e milhares de usuários ao redor do país, é importante que nossa consulta carregue todos os dados numa única ida e volta (roundtrip) ao banco de dados, dessa forma os itens devem ser carregados juntamente com nota fiscal consultada em um único comando `SELECT`.
 
 Como você faria para implementar uma consulta para carregar uma nota fiscal por `id` com todos seu itens utilizando o repository do Micronaut já existente no projeto? 
 
