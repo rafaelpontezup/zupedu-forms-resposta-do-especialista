@@ -98,7 +98,7 @@ Com base no seu conhecimento sobre tratamento de erros com gRPC, e olhando para 
     return
     ```
 
-5. Não, o código está incorreto. Para corrigi-lo eu assumo que o status de erro será `INVALID_ARGUMENT` com uma descrição genérica `"dados de entrada inválidos"`. Agora, eu uso a API `com.google.rpc.Status` para criar uma nova mensagem pois ela suporta adicionar detalhamentos na resposta, assim posso devolver uma lista de erros. Para o detalhamento, eu converto a lista de violações da Bean Validation contidas na exception `ConstraintViolationException` para a API `BadRequest` existente no gRPC; em seguida eu empacoto esse detalhamento na mensagem de erro. Por fim, eu gero uma `StatusRuntimeException` via método `StatusProto.toStatusRuntimeException()` passando a instância da mensagem, e a passo para o método `responseObserver.onError()`; termino o com o código com um `return` para parar o fluxo. O código ficaria semelhante a este:
+5. Não, o código está incorreto. Para corrigi-lo eu assumo que o status de erro será `INVALID_ARGUMENT` com uma descrição genérica `"dados de entrada inválidos"`. Agora, eu uso a API `com.google.rpc.Status` para criar uma nova mensagem pois ela suporta adicionar detalhamentos na resposta, assim posso devolver uma lista de erros. Para o detalhamento, eu converto a lista de violações da Bean Validation contidas na exception `ConstraintViolationException` para uma instância de `BadRequest`, que é um tipo existente na API do gRPC; em seguida eu empacoto esse detalhamento na mensagem de erro (`details` da classe `Status`). Por fim, eu gero uma `StatusRuntimeException` via método `StatusProto.toStatusRuntimeException()` passando a instância da mensagem (`Status`), e passo exception criada para o método `responseObserver.onError()`; termino o código com um `return` para parar o fluxo. O código ficaria semelhante a este:
     ```kotlin
     val badRequest = BadRequest.newBuilder()
             .addAllFieldViolations(e.constraintViolations.map {
@@ -106,8 +106,7 @@ Com base no seu conhecimento sobre tratamento de erros com gRPC, e olhando para 
                     .setField(it.propertyPath.last().name)
                     .setDescription(it.message)
                     .build()
-            }
-            ).build()
+            }).build()
     
     val statusProto = Status.newBuilder() // com.google.rpc.Status
             .setCode(Code.INVALID_ARGUMENT_VALUE)
@@ -115,7 +114,8 @@ Com base no seu conhecimento sobre tratamento de erros com gRPC, e olhando para 
             .addDetails(Any.pack(badRequest)) // com.google.protobuf.Any
             .build()
     
-    responseObserver.onError(StatusProto.toStatusRuntimeException(statusProto))
+    val exception = StatusProto.toStatusRuntimeException(statusProto)
+    responseObserver.onError(exception)
     return
     ```
 
