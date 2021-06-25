@@ -1,4 +1,6 @@
-## Consumindo um endpoint via GRPC
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Consumindo um endpoint via GRPC
 
 ## Cenário:
 
