@@ -6,17 +6,16 @@
 
 Para complementar o curso, recomendamos estudar a documentação oficial do Micronaut sobre [Transactions](https://micronaut-projects.github.io/micronaut-data/latest/guide/#transactions) caso você não tenho estudado ainda. Nela é possível ter uma idéia mais clara do poder e das possibilidades oferecidas pelo framework.
 
-Além disso, alguns conhecimentos sobre persistência de dados, controle transacional com Spring e bancos de dados relacionais que adquirimos através de alguns cursos da ALURA podem ser bastante úteis para este formulário, por exemplo:
+Aqui é um momento importante de conectar vários conteúdos que estudamos e treinamos durante nossa jornada.
+
+O que estou querendo dizer é que alguns conhecimentos sobre persistência de dados, controle transacional com Spring e bancos de dados relacionais que adquirimos através de alguns cursos da ALURA podem ser bastante úteis para este formulário, por exemplo:
 
 - curso de [Spring Data JPA](https://www.alura.com.br/curso-online-spring-data-jpa), mais especificamente o tópico **Operações CRUD**;
 - curso de [Spring Boot API REST: Construa uma API](https://www.alura.com.br/curso-online-spring-boot-api-rest), mais especificamente o tópico **Usando Spring Data**;
 - curso de [Formação SQL com MySQL Server da Oracle](https://www.alura.com.br/formacao-oracle-mysql), mais especificamente o módulo **Avançando em manipulação de dados**;
 - curso de [Persistência com JPA](https://www.alura.com.br/curso-online-persistencia-jpa-introducao-hibernate), mais especificamente o tópico **Ciclo de vida de uma entidade**;
 
-Por o Micronaut ser inspirado no Spring Boot, a documentação oficial do Spring sobre [Propagação de Transações](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#tx-propagation) possui conhecimento útil que pode ser transferida para o ecossistema do Micronaut.
-
-Aqui é um momento importante de conectar vários conteúdos que estudamos e treinamos durante nossa jornada.
-
+Além disso, por o Micronaut ser inspirado no Spring Boot, seu controle transacional via `@Transactional` funciona da mesma maneira, portanto a documentação oficial do Spring sobre [Propagação de Transações](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#tx-propagation) possui conteúdo útil que pode ser facilmente transferido para o ecossistema do Micronaut.
 
 ## Cenário:
 
