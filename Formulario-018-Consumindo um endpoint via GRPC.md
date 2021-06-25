@@ -64,7 +64,7 @@ Como vimos, o projeto Micronaut está devidamente configurado com suas dependên
 
 ## O que seria bom ver nessa resposta?
 
-- **Peso 7**: Criar a factory do client gRPC, injetar o client no controller, usá-lo para consumir a API gRPC usando o CPF recebido pela API REST e convertendo a response gRPC na `enum` da response da API REST;
+- **Peso 7**: Criar a factory do client gRPC, injetar o client no controller, usá-lo para consumir a API gRPC usando o CPF recebido pela API REST e converter a response gRPC na `enum` da response da API REST;
 - **Peso 2**: Configurar a conexão (channel) da API gRPC no arquivo `application.yml`;
 - **Peso 1**: Utilizar extension function do Kotlin para converter a response da API gRPC para response da API REST (ou simplesmente para `enum` de situação);
 

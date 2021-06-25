@@ -2,6 +2,22 @@
 
 # Demarcação de transação
 
+## Antes de começar
+
+Para complementar o curso, recomendamos estudar a documentação oficial do Micronaut sobre [Transactions](https://micronaut-projects.github.io/micronaut-data/latest/guide/#transactions) caso você não tenho estudado ainda. Nela é possível ter uma idéia mais clara do poder e das possibilidades oferecidas pelo framework.
+
+Além disso, alguns conhecimentos sobre persistência de dados, controle transacional com Spring e bancos de dados relacionais que adquirimos através de alguns cursos da ALURA podem ser bastante úteis para este formulário, por exemplo:
+
+- curso de [Spring Data JPA](https://www.alura.com.br/curso-online-spring-data-jpa), mais especificamente o tópico **Operações CRUD**;
+- curso de [Spring Boot API REST: Construa uma API](https://www.alura.com.br/curso-online-spring-boot-api-rest), mais especificamente o tópico **Usando Spring Data**;
+- curso de [Formação SQL com MySQL Server da Oracle](https://www.alura.com.br/formacao-oracle-mysql), mais especificamente o módulo **Avançando em manipulação de dados**;
+- curso de [Persistência com JPA](https://www.alura.com.br/curso-online-persistencia-jpa-introducao-hibernate), mais especificamente o tópico **Ciclo de vida de uma entidade**;
+
+Por o Micronaut ser inspirado no Spring Boot, a documentação oficial do Spring sobre [Propagação de Transações](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#tx-propagation) possui conhecimento útil que pode ser transferida para o ecossistema do Micronaut.
+
+Aqui é um momento importante de conectar vários conteúdos que estudamos e treinamos durante nossa jornada.
+
+
 ## Cenário:
 
 Temos um microsserviço responsável por adicionar comentários aos artigos publicados por nossos usuários. Para isso, o time de backend implementou a seguinte API REST com Micronaut, JPA/Hibernate e um banco de dados relacional:
@@ -80,6 +96,10 @@ class Comentario(
     var artigo: Artigo,
     // outros atributos
 )
+
+class ArtigoNaoEncontradoException(message: String?) : RuntimeException(message) {
+    
+}
 ```
 
 Um novo desenvolvedor(a) junior entrou no time e ficou responsável por fazer alterações no código acima, mas ele(a) resolveu tirar algumas dúvidas com você por ser iniciante com Micronaut e JPA. Por esse motivo, com base no código acima, como você responderia as perguntas abaixo feitas pelo desenvolvedor(a) junior:

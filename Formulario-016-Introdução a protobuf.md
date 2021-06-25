@@ -2,6 +2,10 @@
 
 # Introdução a protobuf
 
+## Antes de começar
+
+Para complementar o curso, recomendamos estudar a documentação oficial da Google sobre [Protocol Buffers: Language Guide (proto3)](https://developers.google.com/protocol-buffers/docs/proto3) caso você não tenho estudado ainda. Nela é possível ter uma idéia mais clara do poder e das possibilidades oferecidas pela tecnologia.
+
 ## Cenário:
 
 Imagine que tenhamos que criar uma API gRPC para cadastrar um novo carro no nosso sistema. Para isso, nosso tech lead conversou com o cliente e levantou as informações na qual um carro precisa necessariamente ter:

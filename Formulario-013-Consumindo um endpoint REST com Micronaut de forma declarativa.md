@@ -2,6 +2,10 @@
 
 # Consumindo um endpoint REST com Micronaut de forma declarativa
 
+## Antes de começar
+
+Para complementar o curso, recomendamos estudar a documentação oficial do Micronaut sobre [Declarative HTTP Clients with @Client](https://docs.micronaut.io/latest/guide/index.html#clientAnnotation) caso você não tenho estudado ainda. Nela é possível ter uma idéia mais clara do poder e das possibilidades oferecidas pelo framework.
+
 ## Cenário:
 
 Imagine que precisamos consumir uma API REST de um sistema terceiro de cartão de crédito no endereço `https://api.de.terceiro.com/`. Essa API em questão é responsável por bloquear um cartão de crédito de um cliente com base nas informações do cartão e titular.

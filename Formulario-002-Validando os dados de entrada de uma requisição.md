@@ -25,9 +25,6 @@ Com todas as restrições citadas acima, como você implementaria sua API REST p
 
 ## Resposta do Especialista:
 
-- **Objetivo de aprendizado**: A idéia aqui é o desenvolvedor(a) estar ciente que a Bean Validation é um framework independente do Micronaut ou Spring Boot, na qual pode-se invocá-la manualmente para validar qualquer objeto sem a necessidade das anotações `@Validated` e `@Valid` do Micronaut, de preferência injetando uma instância de `javax.validation.Validator` gerenciada pelo Micronaut;
-    - **Motivo da escolha**: Ter essa consciência de que a Bean Validation é um framework independente possibilita que o desenvolvedor(a) enxergue-a como uma solução para diversos outros cenários onde não se tem um Micronaut ou Spring Boot para fazer a Inversão de Controle (IoC) para nós, por exemplo importação e processamento de arquivos, integração com API de sistemas externos ou mesmo processamento de jobs em background;
-
 - Crio uma nova classe de controller, anoto ela com `@Controller`, e crio um método `adicionar()` anotado com `@Post` para receber os dados da requisição na URI `"/api/alunos"`. Para o payload JSON, eu crio um DTO `NovoAlunoRequest` que recebe **nome** e **email**, ambos como `String`, e um atributo **idade** do tipo `Int`. Todos estes atributos do DTO são nullable (uso o indicador `?` nos tipos) para que as validações de obrigatoriedade consigam ser executadas corretamente. Por se tratar de um DTO, eu o crio como data class do Kotlin;
 
 - Ainda na classe `NovoAlunoRequest`, eu a anoto com `@Introspected` do Micronaut por causa do AOT (Ahead of Time), e também anoto os atributos da classe com as anotações da Bean Validation:

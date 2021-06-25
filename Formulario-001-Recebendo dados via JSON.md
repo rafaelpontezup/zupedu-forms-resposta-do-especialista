@@ -23,9 +23,6 @@ Como você faria para implementar essa API REST?
 
 ## Resposta do Especialista:
 
-- **Objetivo de aprendizado**: Estar preparado para receber dados numa requisição web em uma estrutura um pouco maior e menos trivial, com uso de coleções, objetos aninhados e tipos mais complexos que precisam de atenção na serialização para JSON; 
-    - **Motivo da escolha**: Ao trabalhar com a implementação de APIs REST o desenvolvedor(a) precisa estar apto a receber uma requisição web no formato JSON com uma estrutura mais complexa, com objetos aninhados e/ou coleções, e também tipos complexos que precisam de algum ajuste fino no envio ou recebimento. Para isso, é necessário ter algum domínio no Micronaut e na sua integração com a lib Jackson para serialização e deserialização destes dados;
-
 - Crio uma nova classe de controller, anoto ela com `@Controller`, e crio um método `adicionar()` anotado com `@Post` para receber os dados da requisição na URI `"/api/autores"`. Para os dados em JSON, eu crio um DTO `NovoAutorRequest` que recebe **nome** e **email**, ambos como `String`, e um atributo **livros** do tipo `List`, onde cada instância de livro também é um DTO, do tipo `LivroRequest`, contendo os atributos **titulo** e **isbn** como `String`, e um atributo **publicadoEm** como `java.time.LocalDate`. Por se tratar de DTOs, eu os crio como data class do Kotlin;
 
 - Para imprimir os dados da requisição no console, eu uso a API de Logging do Slf4j que já vem junto com o Micronaut, criando uma instância de `Logger` no controller e logando os dados com a criticidade `INFO`;

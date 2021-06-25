@@ -2,6 +2,12 @@
 
 # Métodos que geram queries no Micronaut Data
 
+## Antes de começar
+
+Para complementar o curso, recomendamos estudar a documentação oficial do Micronaut sobre [Writing Queries](https://micronaut-projects.github.io/micronaut-data/latest/guide/#querying) caso você não tenho estudado ainda. Nela é possível ter uma idéia mais clara do poder e das possibilidades oferecidas pelo framework.
+
+Outro detalhe importante é que quase tudo que aprendemos no curso da ALURA de [Spring Data JPA: Repositórios, Consultas, Projeções e Specifications](https://www.alura.com.br/curso-online-spring-data-jpa) pode ser aproveitado no aprendizado com Micronaut Data.
+
 ## Cenário:
 
 Imagine que nosso time tenha que implementar uma feature em um aplicativo mobile de cartão de crédito na qual precisará gerar um relatório das transações de pagamento feitas nos últimos 30 dias pelo cliente (usuário) . Para que isso seja possível, o time mobile nos solicitou uma API REST para que eles possam consumir os dados das transações.

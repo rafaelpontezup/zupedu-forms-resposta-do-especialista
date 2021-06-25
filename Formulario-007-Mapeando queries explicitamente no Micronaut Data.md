@@ -2,6 +2,12 @@
 
 # Mapeando queries explicitamente no Micronaut Data
 
+## Antes de começar
+
+Para complementar o curso, recomendamos estudar a documentação oficial do Micronaut sobre [Writing Queries](https://micronaut-projects.github.io/micronaut-data/latest/guide/#querying) caso você não tenho estudado ainda. Nela é possível ter uma idéia mais clara do poder e das possibilidades oferecidas pelo framework.
+
+Além disso, sentir-se confortável com JPA e Hibernate será de grande ajuda ao trabalhar com persistência no Micronaut. Não à toa os conhecimentos adquiridos no curso da ALURA de [Persistência com JPA: Introdução ao Hibernate](https://www.alura.com.br/curso-online-persistencia-jpa-introducao-hibernate) podem ser úteis em problemas semelhantes a este.
+
 ## Cenário:
 
 Imagine que temos como primeira tarefa em um novo time (squad) escrever uma consulta para um relatório especifico no sistema. Por se tratar de um projeto com Micronaut, banco relacional e JPA/Hibernate, nosso tech lead nos contextualizou com as seguintes entidades da JPA utilizadas atualmente no nosso modelo de domínio e com o repository de notas fiscais:
@@ -59,9 +65,9 @@ Como você faria para implementar uma consulta para carregar uma nota fiscal por
         fun findByIdWithItens(id: Long): NotaFiscal
     ```
 
-- Testo o método verificando o SQL gerado pelo Micronaut no console da IDE. Se houver problemas de sintaxe eu vou corrigindo. Eu aproveito para constatar que somente uma única query foi disparada para o banco de dados para carregar a nota fiscal por `id`, afinal temos um relacionamento `LAZY` entre a nota e seus itens (a segunda query para carregar os itens aconteceria apenas ao invocar a property `itens` da nota fiscal no momento de gerar o relatório);
+- Testo o método verificando o SQL gerado pelo Micronaut no console da IDE (assumo que a configuração `show_sql` do Hibernate está habilitada). Se houver problemas de sintaxe eu vou corrigindo. Eu aproveito para constatar que somente uma única query foi disparada para o banco de dados para carregar a nota fiscal por `id`, afinal temos um relacionamento `LAZY` entre a nota e seus itens (a segunda query para carregar os itens aconteceria apenas ao invocar a property `itens` da entidade no momento de gerar o relatório);
 
-- Com a JPQL funcionando, agora **eu preciso alterá-la para garantir que os itens da nota sejam carregados com apenas uma única query**. Para isso eu utilizo o recurso `join fetch` da JPA que faz com que um relacionamento `LAZY` se comporte como `EAGER`, ou seja, que as entidades filhas sejam carregadas juntamente com a entidade pai. No final, a anotação `@Query` teria uma query parecida com essa:
+- Com a JPQL funcionando, agora **eu preciso alterá-la para garantir que tanto a nota quanto seus itens sejam carregados com apenas uma única query**. Para isso eu utilizo o recurso `join fetch` da JPA que faz com que um relacionamento `LAZY` se comporte como `EAGER`, ou seja, que as entidades filhas sejam carregadas juntamente com a entidade pai. No final, a anotação `@Query` teria uma query parecida com essa:
     ```sql
         select n 
           from NotaFiscal n 

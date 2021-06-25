@@ -23,8 +23,8 @@ Portanto, como você ajudaria este(a) desenvolvedor(a) com o código da aplicaç
 ## O que seria bom ver nessa resposta?
 
 - **Peso 6**: Configurar o HTTP client para suportar serialização e deserialização de payloads no formato XML;
-- **Peso 2**: Lembrar de adicionar a dependência do Jackson XML no Gradle ou Maven do projeto;
-- **Peso 2**: Habilitar os logs do HTTP client do Micronaut e fazer testes com a aplicação;
+- **Peso 3**: Lembrar de adicionar a dependência do Jackson XML no Gradle ou Maven do projeto;
+- **Peso 1**: Habilitar os logs do HTTP client do Micronaut e fazer testes com a aplicação;
 
 ## Resposta do Especialista:
 

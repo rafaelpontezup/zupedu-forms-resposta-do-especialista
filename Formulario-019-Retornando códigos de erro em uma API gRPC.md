@@ -2,6 +2,10 @@
 
 # Retornando códigos de erro em uma API gRPC
 
+## Antes de começar
+
+Para complementar o curso, recomendamos estudar a documentação oficial da Google Cloud APIs sobre [gRPC: Error Model](https://cloud.google.com/apis/design/errors) caso você não tenho estudado ainda. Nela é possível ter uma idéia mais clara do poder e das possibilidades oferecidas pela tecnologia na hora de tratar e manipular erros em uma API gRPC.
+
 ## Cenário:
 
 Um novo desenvolvedor(a) que acabou de entrar no seu time da Zup implementou uma API gRPC com Micronaut para cadastrar carros no sistema. Após finalizar a implementação, ele(a) submeteu o código para que alguém do time pudesse fazer o Code Review.

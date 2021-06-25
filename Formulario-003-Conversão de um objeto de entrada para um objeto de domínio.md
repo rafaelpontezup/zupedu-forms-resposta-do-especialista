@@ -46,9 +46,6 @@ Como você implementaria uma API REST para a atividade acima?
 
 ## Resposta do Especialista:
 
-- **Objetivo de aprendizado**: Conscientizar o desenvolvedor(a) que apesar de a tarefa de converter objetos entre modelos é algo comum no dia a dia na construção de APIs e integração de sistemas, ela deve ser feita com alguns cuidados para garantir a integridade dos dados, legibilidade e manutenibilidade do código, favorecendo os recursos da linguagem e uso da orientação a objetos;
-    - **Motivo da escolha**: Favorecer o uso dos recursos da linguagem em vezes de bibliotecas de mapeamento (ModelMapper etc) e aplicar orientação a objetos ajuda a diminuir a complexidade do código escrito, simplifica a manutenção e entendimento por outro desenvolvedor(a) e de quebra facilita na escrita de testes de unidade;
-
 - Crio uma classe de controller, anoto ela com `@Controller`, crio um método `finalizar()` anotado com `@Post("/api/pedidos/finaliza")`. Para o payload JSON recebido como parâmetro, eu crio um DTO `NovoPedidoRequest` que recebe **nome** e **email**, ambos como `String`, e um atributo **itens** do tipo `List`, onde cada instância de item de pedido é um DTO do tipo `ItemDePedidoRequest` contendo os atributos **codigo** como `String`, **preco** como `BigDecimal` e um atributo **quantidade** como `Int`. Por se tratar de DTOs, eu os crio como data class do Kotlin;
 
 - Na classe `NovoPedidoRequest`, eu a anoto com `@Introspected` do Micronaut por causa do AOT (Ahead of Time), e também anoto os atributos da classe com as anotações da Bean Validation:
