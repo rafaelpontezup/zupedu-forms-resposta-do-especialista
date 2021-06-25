@@ -1,4 +1,6 @@
-## Introdução a protobuf
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Introdução a protobuf
 
 ## Cenário:
 

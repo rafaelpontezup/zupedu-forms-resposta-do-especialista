@@ -1,4 +1,6 @@
-## Demarcação de transação
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Demarcação de transação
 
 ## Cenário:
 

@@ -1,4 +1,6 @@
-## Mapeando queries explicitamente no Micronaut Data
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Mapeando queries explicitamente no Micronaut Data
 
 ## Cenário:
 

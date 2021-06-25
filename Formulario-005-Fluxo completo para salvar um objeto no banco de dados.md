@@ -1,4 +1,6 @@
-## Fluxo completo para salvar um objeto no banco de dados
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Fluxo completo para salvar um objeto no banco de dados
 
 ## Cenário:
 

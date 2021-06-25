@@ -1,4 +1,6 @@
-## Validando os dados de entrada de uma requisição
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Validando os dados de entrada de uma requisição
 
 ## Cenário:
 

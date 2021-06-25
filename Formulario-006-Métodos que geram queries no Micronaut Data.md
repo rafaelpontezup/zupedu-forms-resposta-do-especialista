@@ -1,4 +1,6 @@
-## Métodos que geram queries no Micronaut Data
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Métodos que geram queries no Micronaut Data
 
 ## Cenário:
 

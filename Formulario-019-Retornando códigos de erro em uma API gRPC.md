@@ -1,4 +1,6 @@
-## Retornando códigos de erro em uma API gRPC
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Retornando códigos de erro em uma API gRPC
 
 ## Cenário:
 

@@ -1,4 +1,6 @@
-## Implementando Validação customizada com Micronaut Validation
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Implementando Validação customizada com Micronaut Validation
 
 ## Cenário:
 

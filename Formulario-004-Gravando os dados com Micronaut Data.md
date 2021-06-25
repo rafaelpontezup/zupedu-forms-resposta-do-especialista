@@ -1,4 +1,6 @@
-## Gravando os dados com Micronaut Data
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Gravando os dados com Micronaut Data
 
 ## Cenário:
 

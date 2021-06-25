@@ -1,4 +1,6 @@
-## Expondo dados via GRPC
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Expondo dados via GRPC
 
 ## Cenário:
 

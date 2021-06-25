@@ -1,4 +1,6 @@
-## Retornando dados em JSON
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Retornando dados em JSON
 
 ## Cenário:
 

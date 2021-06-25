@@ -1,4 +1,6 @@
-## Recebendo dados via DELETE
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Recebendo dados via DELETE
 
 ## Cenário:
 

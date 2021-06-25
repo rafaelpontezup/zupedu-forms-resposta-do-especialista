@@ -1,4 +1,6 @@
-## Definindo headers e status customizados
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Definindo headers e status customizados
 
 ## Cenário:
 

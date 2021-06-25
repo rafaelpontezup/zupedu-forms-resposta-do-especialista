@@ -1,4 +1,6 @@
-## Consumindo um endpoint REST com Micronaut de forma declarativa
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Consumindo um endpoint REST com Micronaut de forma declarativa
 
 ## Cenário:
 

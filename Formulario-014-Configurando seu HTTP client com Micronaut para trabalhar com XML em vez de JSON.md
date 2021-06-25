@@ -1,4 +1,6 @@
-## Configurando seu HTTP client com Micronaut para trabalhar com XML em vez de JSON
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Configurando seu HTTP client com Micronaut para trabalhar com XML em vez de JSON
 
 ## Cenário:
 

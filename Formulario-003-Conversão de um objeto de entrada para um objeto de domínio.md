@@ -1,4 +1,6 @@
-## Conversão de um objeto de entrada para um objeto de domínio
+![Logo da Orange Talents](resources/Orange-Talents-preto-brilhoesombra.png)
+
+# Conversão de um objeto de entrada para um objeto de domínio
 
 ## Cenário:
 
