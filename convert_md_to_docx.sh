@@ -5,6 +5,7 @@
 # Pandoc Docker Image: https://github.com/jagregory/pandoc-docker
 # Pandoc demos: https://pandoc.org/demos.html
 # Pandoc manual: https://pandoc.org/MANUAL.html
+# Pandoc Syntax Highlighting: https://www.garrickadenbuie.com/blog/pandoc-syntax-highlighting-examples/
 #
 # WARNING: 
 # dont't allow git to replace LF by CRLF, otherwise the script will not run
