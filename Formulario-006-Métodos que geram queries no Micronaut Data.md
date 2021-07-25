@@ -97,5 +97,6 @@ O que código e sintaxe da assinatura do método no repository aqui é o menos i
         criadaEm: LocalDateTime,
         pageable: Pageable // indica a pagina
     ) : Page<TransacaoParaMobile> // mudo o retorno para o DTO
+    ```
 
 - Por fim, testo a consulta mais uma vez para ter certeza que o SQL gerado e o resultado estão de acordo com o que espero;
