@@ -4,7 +4,7 @@
 
 ## Cenário:
 
-Um novo desenvolvedor(a) junior ficou responsável de implementar um microsserviço REST com Micronaut para consumir uma API gRPC. Esse endpoint gRPC é responsável por consultar cupons de compra e retornar o valor do cupom. Para isso, o desenvolvedor(a) implementou um controller com Micronaut dessa forma:
+Um novo desenvolvedor(a) junior ficou responsável de implementar um microsserviço REST com Micronaut que será utilizado por um aplicativo mobile de entregas de produtos. Esse microsserviço irá consumir uma API gRPC na qual é responsável por consultar cupons de compra e retornar o valor do cupom. Para isso, o desenvolvedor(a) implementou um controller com Micronaut dessa forma:
 
 ```kotlin
 @Controller
@@ -29,7 +29,8 @@ class CupomController(
 }
 ```
 
-Apesar do código funcionar, ele foi recusado durante a revisão de código por um desenvolvedor senior do time pois o código não está fazendo o tratamento de erros. Atualmente, este serviço gRPC de cupons pode reportar os seguintes erros:
+Apesar do código funcionar, ele foi recusado durante a revisão de código por um desenvolvedor senior do time pois o código não está fazendo o devido tratamento de erros. Atualmente, este serviço gRPC de cupons pode reportar os seguintes erros:
+
 - `NOT_FOUND`: cupom não encontrado
 - `INVALID_ARGUMENT`: formato do cupom inválido ou não informado
 - `FAILED_PRECONDITION`: cupom expirado ou já utilizado
