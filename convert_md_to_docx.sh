@@ -32,6 +32,6 @@ do
   echo "[+] Converting '$f' to '$filename'"
 
   rm "$filename" 2> /dev/null
-  docker run -v `pwd`:/source jagregory/pandoc -s --highlight-style tango -f markdown -t docx "$f" -o docx/"$filename"
+  docker run --rm -v `pwd`:/source jagregory/pandoc -s --highlight-style tango -f markdown -t docx "$f" -o docx/"$filename"
   count=`expr $count + 1`
 done
