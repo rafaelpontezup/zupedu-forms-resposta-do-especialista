@@ -21,7 +21,7 @@ mkdir docx 2> /dev/null
 
 # which files to convert?
 FILES=Formulario-*.md
-#FILES=Formulario-010-*.md
+FILES=Formulario-020-*.md
 
 count=1
 for f in $FILES
