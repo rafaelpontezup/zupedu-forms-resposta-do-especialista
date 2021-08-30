@@ -109,7 +109,7 @@ Infelizmente o desenvolvedor(a) está tendo seu primeiro contato com escrita de 
     - não calcular o frete quando CEP possuir caracteres não-númericos;
     - não calcular o frete quando CEP for válido mas não existir no banco de dados;
 - **Peso 1**: Caso tenha enxergado também o cenário: não calular o frete quando o CEP possuir somente caracteres de espaço em branco (blank);
-- **Peso 5**: Demonstrar conhecimento de como escrever testes de integração com Micronaut para uma API gRPC. O importante aqui não é nem o código em si, mas sim demonstrar domínio de como se constrói o o teste para cada cenário, como faz o setup com `@MicronautTest` e principalmente de como se valida os retornos de sucesso e erro de uma API gRPC; 
+- **Peso 5**: Demonstrar conhecimento de como escrever testes de integração com Micronaut para uma API gRPC. O importante aqui não é nem o código em si, mas sim demonstrar domínio de como se constrói o teste para cada cenário, como faz o setup com `@MicronautTest` e principalmente de como se valida os retornos de sucesso e erro de uma API gRPC; 
 
 ## O que penaliza sua resposta?
 
@@ -125,12 +125,17 @@ Infelizmente o desenvolvedor(a) está tendo seu primeiro contato com escrita de 
     - mapeamento da entidade `Frete` com JPA/Hibernate;
     - validação do SQL gerado pela JPA/Hibernate no momento da consulta ao banco de dados;
 
-2. Enxergo 5 cenários de testes. Os cenários que enxergo são:
+2. Enxergo 5 cenários de testes descritos abaixo:
     - **happy path**: deve calcular o frete quando o CEP informado for válido e existir no banco de dados;
-    - não deve calcular o frete quando o CEP informado for válido mas **não existir** no banco de dados;
-    - não deve calcular o frete quando o CEP informado for **vazio** (lembrando que protobuf não permite atributos nulos);
-    - não deve calcular o frete quando o CEP informado possuir **somente espaços em branco**;
-    - não deve calcular o frete quando o CEP informado possuir algum **caractere não-númerico**;
+    - **CEP válido mas não encontrado**: não deve calcular o frete quando o CEP informado for válido mas **não existir** no banco de dados;
+    - **CEP vazio (empty)**: não deve calcular o frete quando o CEP informado for **vazio** (lembrando que protobuf não permite atributos nulos);
+    - **CEP preenchido com espaços em branco (blank)**: não deve calcular o frete quando o CEP informado possuir **somente espaços em branco**;
+    - **CEP preenchido com caracteres não-númerico**: não deve calcular o frete quando o CEP informado possuir algum **caractere não-númerico**;
 
-3. xxx
+3. Crio uma classe `FretesEndpointTest` e a anoto com `@MicronautTest` para indicar que se trata de testes de integração, dessa forma o contexto do Micronaut seria startado ao rodar algum método de teste. Também deligo o controle transacional do Micronaut através do `@MicronautTest(transactional=false)` pois o servidor gRPC trabalha numa thread separada e diferente da thread do jUnit, o que ignora a transação aberta em cada método com `@Test` causando efeitos colaterais inesperados na execução da bateria de testes. Ainda dentro da classe de teste, crio uma factory do Micronaut (com `@Factory`) para instanciar e configurar o gRPC client (que aponta para o servidor gRPC embarcado no teste) que será utilizado para consumir o nosso endpoint. E para cada cenário de teste citado acima eu implemento algo como:
+    - **happy path**: insiro 3 fretes na tabela via `FreteRepository` injetado na classe `FretesEndpointTest`; exercito o endpoint `calcula()` passando um CEP válido existente no banco de dados; e valido se o retorno do endpoint trouxe o CEP informado juntamente com seu valor de frete cadastrado no banco;
+    - **CEP válido mas não encontrado**: insiro 3 fretes na tabela via `FreteRepository` injetado na classe `FretesEndpointTest`; exercito o endpoint `calcula()` passando um CEP válido mas não existente no banco de dados; e por fim capturo a exceção `StatusRuntimeException` lançada pelo endpoint para verificar se o status de retorno se trata de um `FAILED_PRECONDITION` com a mensagem de erro `"CEP inválido ou não encontrado"`;
+    - **CEP vazio (empty)**: não preciso inserir nada no banco de dados; exercito o endpoint `calcula()` passando um CEP vazio; e por fim capturo a exceção `StatusRuntimeException` lançada pelo endpoint para verificar se o status de retorno se trata de um `INVALID_ARGUMENT` com a mensagem de erro `"CEP não informado"`;
+    - **CEP preenchido com espaços em branco (blank)**: não preciso inserir nada no banco de dados; exercito o endpoint `calcula()` passando um CEP com 3 ou 4 espaços em branco; e por fim capturo a exceção `StatusRuntimeException` lançada pelo endpoint para verificar se o status de retorno se trata de um `INVALID_ARGUMENT` com a mensagem de erro `"CEP não informado"`;
+    - **CEP preenchido com caracteres não-númerico**: não preciso inserir nada no banco de dados; exercito o endpoint `calcula()` passando um CEP com letras e simbolos; e por fim capturo a exceção `StatusRuntimeException` lançada pelo endpoint para verificar se o status de retorno se trata de um `INVALID_ARGUMENT` com a mensagem de erro `"CEP com formato inválido. Formato esperado: 99999999"`;
 
