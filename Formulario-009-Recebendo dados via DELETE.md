@@ -15,13 +15,13 @@ Felizmente a entidade da JPA que representa um autor já existe no projeto e est
 Portanto, temos duas perguntas para você:
 
 1. Como você implementaria uma API REST com Micronaut para excluir os dados do autor?
-2. Você acha que faz sentido retornar um status HTTP 200 quando o autor não existe no banco de dados? Por quê? 
+2. Você acha que faz sentido retornar um status HTTP 200 em vez de um 404 (Not Found) quando o autor não existe no banco de dados? Por quê?
 
 ## O que seria bom ver nessa resposta?
 
 - **Peso 5**: Criar um controller com um método para receber o autor respeitando as restrições da atividade e excluir a entidade do banco de dados;
 - **Peso 2**: Anotar o método do controller com `@Delete` do Micronaut com uma URI usando o ID do autor para indicar o resource especifico;
-- **Peso 3**: Explicar o motivo de não fazer diferença para esse endpoint. Melhor ainda se referenciar a prática de idempotência usado em APIs REST ou mesmo idempotência para o verbo HTTP DELETE;
+- **Peso 3**: Explicar o motivo de não fazer diferença para esse endpoint pois tanto 404 como 200 estão corretos, embora 404 seja mais RESTful por respeitar a especificação HTTP. O mais importante aqui é referenciar a prática de **idempotência** usado em APIs REST ou mesmo para o verbo HTTP DELETE;
 
 ## Resposta do Especialista:
 
@@ -35,4 +35,4 @@ Portanto, temos duas perguntas para você:
 
 - Por fim, eu testo o endpoint usando o POSTman ou Insomnia para ter certeza que tudo ocorreu como esperado;
 
-- Sobre retornar o status HTTP 200 quando o autor não existir no sistema, não só faz sentido como é uma prática comum pois a entidade indicada na requisição pode ter sido excluída por outra requisição, ou seja, tentar excluir uma entidade que não existe **não altera o resultado final esperado pelo cliente da API REST: a entidade está excluída**. Tanto é, que denominamos essa prática de **idempotência**, que, de acordo com a especificação HTTP, é algo padrão e esperado em requisições que usam o verbo DELETE;
+- Sobre retornar o status HTTP 200 quando o autor não existir no sistema, é um status de retorno aceitável e comumente usado em serviços a fim de simplificar a vida do client-side, mas pode ser que em alguns cenários de integração seja necessário que o client consiga diferenciar um resource existente de um não-existente, nesse caso retornar um 404 faz mais sentido. Enfim, seja o retorno 404 ou 200, tentar excluir uma entidade que não existe **não altera o resultado final esperado pelo cliente da API REST nem o estado final no servidor: a entidade está excluída**. Tanto é, que denominamos essa prática de **idempotência**, que, de acordo com a especificação HTTP, é algo padrão e esperado em requisições que usam o verbo DELETE;
